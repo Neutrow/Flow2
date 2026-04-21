@@ -159,6 +159,10 @@ function setLang(lang) {
 
 /* ── SCROLL REVEAL ──────────────────────────────────────── */
 function initScrollReveal() {
+  const revealAll = () => document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+
+  if (!('IntersectionObserver' in window)) { revealAll(); return; }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -167,8 +171,10 @@ function initScrollReveal() {
       setTimeout(() => el.classList.add('visible'), delay);
       observer.unobserve(el);
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  setTimeout(() => document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible')), 800);
 }
 
 /* ── NAVBAR ─────────────────────────────────────────────── */
