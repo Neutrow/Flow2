@@ -229,6 +229,14 @@ svg { display: block; flex-shrink: 0; }
 }
 .form-group input:focus { border-color: var(--indigo); box-shadow: 0 0 0 3px var(--indigo-dim); }
 .form-group input::placeholder { color: var(--text3); }
+.form-group select {
+  padding: 11px 14px; background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--text); font-size: 14px;
+  outline: none; transition: border-color var(--transition);
+  width: 100%; font-family: var(--font); cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+}
+.form-group select:focus { border-color: var(--indigo); box-shadow: 0 0 0 3px var(--indigo-dim); }
 .form-error { font-size: 13px; color: #ef4444; min-height: 18px; margin-bottom: 8px; }
 .modal-switch { text-align: center; margin-top: 16px; font-size: 13px; color: var(--text3); display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
 .link-btn { color: var(--indigo); font-weight: 600; font-size: 13px; cursor: pointer; transition: color var(--transition); }
@@ -257,6 +265,9 @@ svg { display: block; flex-shrink: 0; }
 @media (max-width: 1024px) {
   .pricing-grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 900px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
   .nav-center, .nav-right { display: none; }
   .burger { display: flex; }
@@ -265,6 +276,7 @@ svg { display: block; flex-shrink: 0; }
   .hero-stats { gap: 0; padding: 16px; }
   .stat-item { padding: 0 16px; }
   .stat-number { font-size: 1.4rem; }
+  .features, .pricing { padding: 72px 0; }
 }
 @media (max-width: 640px) {
   .pricing-grid { grid-template-columns: 1fr; }
@@ -273,4 +285,17 @@ svg { display: block; flex-shrink: 0; }
   .stat-divider { display: none; }
   .hero-stats { gap: 12px; }
   .stat-item { padding: 8px 16px; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 100px 0 56px; }
+  .features, .pricing { padding: 52px 0; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 8px;
+  }
+  .stat-item { padding: 14px 12px; }
+  .section-header { margin-bottom: 36px; }
+  .modal { padding: 28px 20px; }
 }

@@ -180,20 +180,47 @@
 @media (max-width: 1024px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .shop-grid { grid-template-columns: repeat(2, 1fr); }
+  .overview-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
   .overview-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
   .app-body { grid-template-columns: 1fr; }
-  .sidebar { position: fixed; left: -240px; top: 44px; height: calc(100vh - 44px); width: 220px; z-index: 49; transition: left .25s cubic-bezier(.4,0,.2,1); background: var(--bg2); }
+  .sidebar {
+    position: fixed; left: -240px; top: 44px;
+    height: calc(100vh - 44px); width: min(220px, 80vw);
+    z-index: 49; transition: left .25s cubic-bezier(.4,0,.2,1); background: var(--bg2);
+  }
   .sidebar.open { left: 0; }
   .sidebar-overlay { display: block; }
   .app-main { grid-column: 1; padding: 16px; }
   .burger-app { display: flex; }
   .week-grid, .planning-grid { grid-template-columns: repeat(4, 1fr); }
   .user-email { display: none; }
+  .item-actions { opacity: 1; }
+  .tab-bar { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .tab-bar::-webkit-scrollbar { display: none; }
 }
 @media (max-width: 480px) {
-  .week-grid, .planning-grid { grid-template-columns: repeat(2, 1fr); }
+  .app-main { padding: 12px; }
+  .week-grid { grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .planning-grid {
+    grid-template-columns: repeat(7, minmax(110px, 1fr));
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; min-height: unset;
+  }
+  .planning-grid::-webkit-scrollbar { display: none; }
   .shop-grid, .stats-grid { grid-template-columns: 1fr; }
   .pomo-ring { width: 180px; height: 180px; }
+  .pomo-center { gap: 20px; padding-top: 8px; }
+  .page-header { margin-bottom: 20px; }
+  #btn-logout span { display: none; }
+}
+@media (max-width: 360px) {
+  .app-main { padding: 10px; }
+  .pomo-ring { width: 160px; height: 160px; }
+  .pomo-time { font-size: 2.2rem; }
+  .lang-btn { padding: 5px 6px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
